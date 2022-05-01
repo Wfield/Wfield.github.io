@@ -3,17 +3,29 @@
   <head>
     <title>sphere</title>
     <style>
-      .tools {
-        width: 400px;
-        height: 400px;
-        background-color: white;
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
       .silder {
         margin: 20px;
         display: flex;
+      }
+      @media only screen and (min-width: 769px) {
+        .tools {
+          width: 400px;
+          height: 400px;
+          background-color: white;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        canvas {
+          width: 100%;
+        }
+        .tools {
+          width: 100%;
+          height: 200px;
+          background-color: white;
+        }
       }
     </style>
   </head>
