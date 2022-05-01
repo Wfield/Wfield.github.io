@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>wfield blog</title>
     <style>
       body {
@@ -10,9 +11,6 @@
       }
       iframe {
         border: none;
-      }
-      #homepage {
-        padding: 40px 80px;
       }
       .gallery {
         display: flex;
@@ -24,6 +22,16 @@
         display: flex;
         align-items: center;
         padding: 0 48px;
+      }
+      @media only screen and (max-width: 768px) {
+        #homepage {
+          padding: 20px 20px;
+        }
+      }
+      @media only screen and (min-width: 769px) {
+        #homepage {
+          padding: 40px 80px;
+        }
       }
     </style>
   </head>
