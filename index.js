@@ -1,50 +1,48 @@
-// 元素依次为: hash 路由, iframe 位置, a 标签文本
-const listMap = [
-  ['webgl-moon', './components/sphere/index.html', 'moon']
-]
+import hashRouter from "./router.js";
+import HomePage from "./homepage.js";
 
 const items = `
-${listMap.map(([key, val, text]) => {
+${hashRouter.map((route) => {
   return `
   <div class='item'>
-    <a href='#${key}'>${text}</a>
+    <a href='#${route.path}'>${route.desc}</a>
   </div>
   `
 })}
 `
 const gallery = document.createElement('div');
 gallery.setAttribute('class', 'gallery');
-gallery.innerHTML = items
-document.body.append(gallery)
+gallery.innerHTML = items;
+HomePage.appendChild(gallery);
 
-function hashChangeCallback(key, val) {
+function createIframes(path, src) {
   const iframe = document.createElement('iframe');
-  if (location.hash === `#${key}`) {
-    iframe.setAttribute('id', key);
+  if (location.hash === `#${path}`) {
+    iframe.setAttribute('id', path);
     iframe.setAttribute('width', '100%');
     iframe.setAttribute('height', '600px');
-    iframe.src = val;
+    iframe.src = src;
     document.body.append(iframe);
-    gallery.style.display = 'none';
+    HomePage.hide();
   } else {
-    const ele = document.getElementById(key);
+    const ele = document.getElementById(path);
     if(ele) {
       ele.remove()
     }
-    gallery.style.display = 'block';
+    HomePage.show();
   }
 }
 
-
-window.addEventListener('hashchange', () => {
-  listMap.map(([key, val]) => {
-    hashChangeCallback(key, val)
+function hashChangeCallback() {
+  hashRouter.map((route) => {
+    createIframes(route.path, route.src)
   })
-});
+}
+
+window.addEventListener('hashchange', hashChangeCallback);
 
 window.addEventListener('load', () => {
   if(location.hash) {
-    const event = new CustomEvent('hashchange')
-    window.dispatchEvent(event)
+    hashChangeCallback()
   }
 })
