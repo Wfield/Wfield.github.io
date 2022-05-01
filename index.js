@@ -44,6 +44,7 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   if(location.hash) {
-    window.location.href = window.location.origin;
+    const event = new CustomEvent('hashchange')
+    window.dispatchEvent(event)
   }
 })
