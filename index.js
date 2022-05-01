@@ -20,7 +20,7 @@ function createIframes(path, src) {
   if (path && src) {
     iframe.setAttribute('id', path);
     iframe.setAttribute('width', '100%');
-    iframe.setAttribute('height', '600px');
+    iframe.setAttribute('height', '100%');
     iframe.src = src;
     document.body.append(iframe);
     HomePage.hide();
