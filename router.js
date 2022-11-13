@@ -13,6 +13,11 @@ const hashRouter = [
     path: 'skecth-pot',
     src: './components/sketch-pot/index.html',
     desc: '素描-罐子'
+  },
+  {
+    path: 'education',
+    src: './components/education/index.html',
+    desc: '教育'
   }
 ]
 
