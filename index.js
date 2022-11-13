@@ -16,8 +16,8 @@ gallery.innerHTML = items;
 HomePage.appendChild(gallery);
 
 function createIframes(path, src) {
-  const iframe = document.createElement('iframe');
   if (path && src) {
+    const iframe = document.createElement('iframe');
     iframe.setAttribute('id', path);
     iframe.setAttribute('width', '100%');
     iframe.setAttribute('height', '100%');
