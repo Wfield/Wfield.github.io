@@ -18,6 +18,11 @@ const hashRouter = [
     path: 'education',
     src: './components/education/index.html',
     desc: '教育'
+  },
+  {
+    path: 'ai-history',
+    src: './components/ai-history/index.html',
+    desc: 'ai'
   }
 ]
 
