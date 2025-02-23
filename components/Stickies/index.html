@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>便利贴</title>
+</head>
+
+<template id="note-template">
+  <style>
+    .my-btn {
+      padding: 8px 16px;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+  <div class="note">
+    <slot>Default</slot>
+  </div>
+</template>
+
+<body>
+  <div id="app"></div>
+</body>
+
+<script>
+  // 组件类
+  class MyNote {
+    constructor(text) {
+      const template = document.getElementById('note-template-template')
+      const content = template.content.cloneNode(true)
+      this.element = content.querySelector('note')
+      this.element.textContent = text
+    }
+  }
+
+  // 使用组件
+  const app = document.getElementById('app')
+  const note1 = new MyNote('Click me').element
+  const note2 = new MyNote('Submit').element
+  app.append(note1, note2)
+  </script>
+
+</html>
