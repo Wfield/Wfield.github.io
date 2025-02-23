@@ -23,6 +23,11 @@ const hashRouter = [
     path: 'ai-history',
     src: './components/ai-history/index.html',
     desc: 'ai'
+  },
+  {
+    path: 'stickies',
+    src: './components/stickies/index.html',
+    desc: '便利贴'
   }
 ]
 
